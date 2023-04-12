@@ -1,0 +1,141 @@
+@keyframes runningLight {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -400;
+    }
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+body {
+    font-family: Arial, sans-serif;
+    color: #FFF;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+/* Layout */
+header {
+    background-color: #333;
+    padding: 2rem;
+    text-align: center;
+}
+
+main {
+    background-color: #222;
+    padding: 2rem;
+}
+
+footer {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Interests Section */
+.hexagon-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.hexagon {
+    position: relative;
+    width: 200px;
+    height: 115px;
+    background-color: purple;
+    margin: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    background: none;
+}
+
+.hexagon .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hexagon .border path {
+    fill: purple;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 4;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+    animation: runningLight 2s infinite linear;
+}
+
+.hexagon:before,
+.hexagon:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    z-index: 1;
+}
+
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: 57.5px solid purple;
+}
+
+.hexagon:after {
+    top: 100%;
+    border-top: 57.5px solid purple;
+}
+
+.hexagon h3 {
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.hexagon .running-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    animation: runningLight 2s infinite linear;
+    z-index: 2;
+}
+
+/* Game Section */
+#game {
+    text-align: center;
+}
+
+/* Footer */
+footer a {
+    color: #FFF;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
